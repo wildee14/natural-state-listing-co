@@ -17,6 +17,9 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
+    
+    <link rel="preload" href="./images/Bathroom.mp4" as="video" type="video/mp4">
+
     <style>
         * {
             margin: 0;
@@ -282,7 +285,6 @@
             display: flex;
             gap: var(--card-gap);
             animation: scroll 50s linear infinite;
-            /* UPDATED: Width is now calculated based on 12 slides */
             width: calc((var(--card-width) + var(--card-gap)) * 12);
         }
 
@@ -296,7 +298,6 @@
             }
 
             100% {
-                /* Move by half since we duplicated slides */
                 transform: translateX(-50%);
             }
         }
@@ -339,7 +340,6 @@
             color: #4b5563;
         }
 
-        /* Remove old styles no longer needed */
         .gradient-overlay,
         .carousel-controls {
             display: none;
@@ -671,7 +671,7 @@
     </div>
 
     <section class="hero">
-        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata" fetchpriority="high">
             <source src="./images/Bathroom.mp4" type="video/mp4">
         </video>
         <div class="hero-overlay"></div>
